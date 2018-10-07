@@ -14,7 +14,7 @@ import styled from 'styled-components'
 
   componentWillMount(){
     const searchItem = "php"
-    const url = `http://it-ebooks-api.info/v1/search/${searchItem}`;
+    const url = `https://it-ebooks-api.info/v1/search/${searchItem}`;
 
     fetch(url)
     .then(res => res.json())
