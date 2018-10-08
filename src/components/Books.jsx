@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
  class Books extends Component {
   
- 
-  
-  constructor(props){
+    constructor(props){
     super(props);
     this.state = {
       books : []
@@ -14,16 +12,13 @@ import styled from 'styled-components'
 
   componentWillMount(){
     const searchItem = "php"
-    const url = `https://it-ebooks-api.info/v1/search/${searchItem}`;
-
+    const url = `http://it-ebooks-api.info/v1/search/${searchItem}`;
     fetch(url)
     .then(res => res.json())
     .then(data => this.setState({
       books : data.Books
     }))
-
   }
-  
   
   
   render() {
@@ -34,7 +29,8 @@ import styled from 'styled-components'
     return (
       <div className="">
         <div className="row">
-           {this.state.books.map(book=>
+           {this.state.books.map(
+             book=>
                    <div className="col-xs-12  col-sm-6 col-md-12  col-lg-6" key={book.ID} >
                       <Card className="card mycard" >
                         <div className="media">
