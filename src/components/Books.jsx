@@ -1,31 +1,41 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {fetchBooks} from '../actions/booksAction';
  class Books extends Component {
-  
-    constructor(props){
+  constructor(props){
     super(props);
     this.state = {
       books : []
     }
   }
-
+ /*componentWillReceiveProps(nextProps){
+    if(nextProps.searchedItem){
+      console.log('hello larbi')
+      //this.props.fetchBooks(nextProps.searchedItem)
+      console.log()
+      //this.props.posts.unshift(nextProps.newPost)
+      this.setState({
+        books : this.props.books
+      })
+      console.log("--->" , this.state.books)
+    }
+  }*/
 
   componentWillMount(){
-    const searchItem = "php"
-    const url = `http://it-ebooks-api.info/v1/search/${searchItem}`;
-    fetch(url)
-    .then(res => res.json())
-    .then(data => this.setState({
-      books : data.Books
-    }))
+    this.props.fetchBooks("java")
+     console.log('---> ', this.props) 
+
   }
-  
-  
+
+
   render() {
     const Card = styled.div`
             margin : 1%;
              padding: 2%;
-            `
+            `;
+           
+          
     return (
       <div className="">
         <div className="row">
@@ -51,4 +61,10 @@ import styled from 'styled-components'
     )
   }
 }
-export default Books;
+
+const mapStateToProps = state => ({
+      books : state.books.books,
+      searchedItem : state.books.searchedItem
+})
+
+export default connect(mapStateToProps , {fetchBooks})(Books);

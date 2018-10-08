@@ -2,7 +2,7 @@ import { SEARCH_BOOKS , FETCH_BOOKS} from '../constants/types';
 
 const initialState = {
   books : [],
-  searchedItem : 'php'
+  searchedItem : 'java'
 }
 
 
@@ -14,7 +14,7 @@ export default function (state = initialState , action = {}) {
         books : action.payload
       }
       return state;
-      
+
     case SEARCH_BOOKS : 
       state = {
         ...state,
