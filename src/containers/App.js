@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Books from '../components/Books'; 
 import SearchBooks from '../components/searchBooks';
+import ResultSearchStats from '../components/ResultSearchStats';
 import styled from 'styled-components'
 class App extends Component {
   render() {
@@ -15,6 +16,13 @@ class App extends Component {
           <div className="card container bg-primary" style={{position:  'static'}}>
               <div className="card-body">
                 <SearchBooks /> 
+              </div>
+
+          </div>
+          <br/>
+          <div className="card container bg-success" style={{position:  'static'}}>
+              <div className="card-body">
+                <ResultSearchStats /> 
               </div>
 
           </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {searchItem, fetchBooks} from '../actions/booksAction';
-import {connect} from 'react-redux';
+
 
 class SearchBooks extends Component {
  
@@ -24,11 +23,11 @@ class SearchBooks extends Component {
   
   onSubmit = (e) =>{
         e.preventDefault();
-        this.props.searchItem(this.state.searchItem);
+       /* this.props.searchItem(this.state.searchItem);
         console.log(this.state.searchItem);
         console.log(this.props.books)
         console.log(this.props.searchedItem)
-        this.props.fetchBooks(this.props.searchedItem)
+        this.props.fetchBooks(this.props.searchedItem)*/
   }
 
   render() {
@@ -52,11 +51,7 @@ class SearchBooks extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-      books : state.books.books,
-      searchedItem : state.books.searchedItem
-})
 
 
 
-export default connect(mapStateToProps , {searchItem,fetchBooks} )(SearchBooks);
+export default SearchBooks;

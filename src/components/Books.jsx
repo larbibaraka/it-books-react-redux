@@ -23,9 +23,13 @@ import {fetchBooks} from '../actions/booksAction';
   }*/
 
   componentWillMount(){
-    this.props.fetchBooks("java")
-     console.log('---> ', this.props) 
+    ///this.props.books.fetchBooks("java")
+   
+     this.props.fetchBooks('java');
 
+     
+     console.log('---> : ', this.props.books)
+    
   }
 
 
@@ -39,7 +43,7 @@ import {fetchBooks} from '../actions/booksAction';
     return (
       <div className="">
         <div className="row">
-           {this.state.books.map(
+           {this.props.books.map(
              book=>
                    <div className="col-xs-12  col-sm-6 col-md-12  col-lg-6" key={book.ID} >
                       <Card className="card mycard" >
@@ -64,7 +68,7 @@ import {fetchBooks} from '../actions/booksAction';
 
 const mapStateToProps = state => ({
       books : state.books.books,
-      searchedItem : state.books.searchedItem
-})
+      
+    })
 
 export default connect(mapStateToProps , {fetchBooks})(Books);

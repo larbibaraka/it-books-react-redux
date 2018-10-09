@@ -1,26 +1,25 @@
-import { SEARCH_BOOKS , FETCH_BOOKS} from '../constants/types';
+import {  FETCH_BOOKS} from '../constants/types';
 
 const initialState = {
   books : [],
-  searchedItem : 'java'
+  Time  : 0,
+  CurrentPage : 1,
+  Total : 0
 }
 
 
-export default function (state = initialState , action = {}) {
+export default function (state = initialState , action) {
   switch (action.type) {
     case FETCH_BOOKS :
       state = {
         ...state,
-        books : action.payload
-      }
+        books : action.payload.Books,
+        Time  : action.payload.Time,
+        CurrentPage : action.payload.Page,
+        Total : action.payload.Total
+      };
       return state;
-
-    case SEARCH_BOOKS : 
-      state = {
-        ...state,
-        searchedItem : action.payload
-      } 
-      return state;
+   
     default:
       return state;
   }
