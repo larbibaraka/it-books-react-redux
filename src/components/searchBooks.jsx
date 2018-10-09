@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {fetchBooks} from '../actions/booksAction';
 
 
 class SearchBooks extends Component {
@@ -23,9 +25,13 @@ class SearchBooks extends Component {
   
   onSubmit = (e) =>{
         e.preventDefault();
-       /* this.props.searchItem(this.state.searchItem);
-        console.log(this.state.searchItem);
-        console.log(this.props.books)
+       // this.props.searchItem(this.state.searchItem);
+         const textToSearch = this.state.searchItem;
+        this.props.fetchBooks(textToSearch);
+        this.setState({
+          searchItem : ""
+        })
+        /*console.log(this.props.books)
         console.log(this.props.searchedItem)
         this.props.fetchBooks(this.props.searchedItem)*/
   }
@@ -41,6 +47,7 @@ class SearchBooks extends Component {
                 name="search-book"
                 className="form-control"
                 placeholder="eg : php"
+                value = {this.state.searchItem}
                 onChange = {this.onChange.bind(this)}
               />
             </div>
@@ -52,6 +59,6 @@ class SearchBooks extends Component {
 }
 
 
+ 
 
-
-export default SearchBooks;
+export default connect(null , {fetchBooks})(SearchBooks);

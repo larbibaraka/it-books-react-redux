@@ -24,22 +24,15 @@ import {fetchBooks} from '../actions/booksAction';
 
   componentWillMount(){
     ///this.props.books.fetchBooks("java")
-   
-     this.props.fetchBooks('java');
-
-     
-     console.log('---> : ', this.props.books)
-    
+     this.props.fetchBooks('java');   
   }
-
 
   render() {
     const Card = styled.div`
             margin : 1%;
              padding: 2%;
             `;
-           
-          
+
     return (
       <div className="">
         <div className="row">
@@ -50,7 +43,7 @@ import {fetchBooks} from '../actions/booksAction';
                         <div className="media">
                               <img className="mr-3" src={book.Image} alt=""/>
                                 <div className="media-body">
-                                  <h5 className="mt-0 text-info">{book.Title}</h5>
+                                  <h5 className="mt-0 text-info"><a href="http://it-ebooks-api.info">{book.Title}</a></h5>
                                   <p className="">{book.Description}</p>
                                 </div>
                           </div>
@@ -68,7 +61,6 @@ import {fetchBooks} from '../actions/booksAction';
 
 const mapStateToProps = state => ({
       books : state.books.books,
-      
-    })
+})
 
 export default connect(mapStateToProps , {fetchBooks})(Books);
