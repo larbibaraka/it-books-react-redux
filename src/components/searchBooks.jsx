@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {fetchBooks} from '../actions/booksAction';
-
-
 class SearchBooks extends Component {
  
  constructor(props){
@@ -16,25 +14,18 @@ class SearchBooks extends Component {
     if(e.target.value.length !== 0){
       this.setState({
         searchItem : e.target.value
-      })
-      //const text = e.target.value;
-      //this.props.searchItem(text);
-      
+      })   
     }
   }
   
   onSubmit = (e) =>{
         e.preventDefault();
-       // this.props.searchItem(this.state.searchItem);
-         const textToSearch = this.state.searchItem;
+        const textToSearch = this.state.searchItem;
         this.props.fetchBooks(textToSearch);
         this.setState({
           searchItem : ""
         })
-        /*console.log(this.props.books)
-        console.log(this.props.searchedItem)
-        this.props.fetchBooks(this.props.searchedItem)*/
-  }
+    }
 
   render() {
     return (
