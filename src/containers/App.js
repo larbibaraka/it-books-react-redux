@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Books from '../components/Books'; 
 import SearchBooks from '../components/searchBooks';
 import ResultSearchStats from '../components/ResultSearchStats';
-import styled from 'styled-components'
+import Pagination from '../components/Pagination';
+import styled from 'styled-components';
 class App extends Component {
   render() {
     const CardBooks = styled.div `
@@ -29,9 +30,14 @@ class App extends Component {
           <CardBooks className="container card">
               <div className="card-body">
               <Books/>
+              <hr/>
+              <Pagination/>
               </div>
+              
+
           </CardBooks>
-                
+         
+
          </main>
       </div>
     );
@@ -39,3 +45,4 @@ class App extends Component {
 }
 
 export default App;
+//todo add a pages component
