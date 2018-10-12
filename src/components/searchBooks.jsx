@@ -21,12 +21,15 @@ class SearchBooks extends Component {
   
   onSubmit = (e) =>{
         e.preventDefault();
-        const textToSearch = this.state.searchItem;
-        this.props.searchText(textToSearch);
-        this.props.fetchBooks(textToSearch);
-        this.setState({
-          searchItem : ""
-        })
+        if(this.state.searchItem !== ""){
+           const textToSearch = this.state.searchItem;
+          this.props.searchText(textToSearch);
+          this.props.fetchBooks(textToSearch);
+          this.setState({
+            searchItem : ""
+          })
+        }
+       
     }
 
   render() {

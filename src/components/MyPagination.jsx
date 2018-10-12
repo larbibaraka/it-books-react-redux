@@ -35,7 +35,8 @@ class MyPagination extends Component {
 
   onChange = (page) => {
     console.log(page);
-    this.props.fetchBooksWithPageNumber()
+
+    this.props.fetchBooksWithPageNumber(page,this.props.searchText )
     /*this.setState({
       current: page,
     });*/
@@ -45,19 +46,24 @@ class MyPagination extends Component {
   }
 
   render() {
-    return (
-      <Pagination 
-      total={parseInt(this.props.Total,10)} 
-      itemRender={this.textItemRender}
-     
-      onChange={this.onChange}
-       />
-    )
+    if(this.props.books.length !== 0){
+      return (
+        <Pagination 
+          total={parseInt(this.props.Total,10)} 
+          itemRender={this.textItemRender}
+          onChange={this.onChange}
+         />
+      )
+      }else{
+        return(false)
+      }
   }
 }
 
 const mapStateToProps = state => ({
+      books : state.books.books,
       CurrentPage : state.books.Page,
-      Total : state.books.Total
+      Total : state.books.Total,
+      searchText  : state.books.searchText
 })
 export default connect(mapStateToProps , {fetchBooksWithPageNumber})(MyPagination);

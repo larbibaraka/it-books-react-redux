@@ -25,9 +25,11 @@ export function fetchBooks(item) {
 
 
 export function fetchBooksWithPageNumber(pageNumber, item) {
-    return function (dispatch) {
+    console.log(pageNumber, item)
+  return function (dispatch) {
       const searchItem = item;
       const url = `http://it-ebooks-api.info/v1/search/${searchItem}/page/${pageNumber}`;
+     console.log(url)
       fetch(url)
       .then(res => res.json())
       .then(items => dispatch ({
