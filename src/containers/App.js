@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Books from '../components/Books'; 
 import SearchBooks from '../components/searchBooks';
 import ResultSearchStats from '../components/ResultSearchStats';
-import Pagination from '../components/Pagination';
+import MyPagination from '../components/MyPagination';
 import styled from 'styled-components';
 class App extends Component {
   render() {
@@ -31,10 +31,8 @@ class App extends Component {
               <div className="card-body">
               <Books/>
               <hr/>
-              <Pagination/>
+              <MyPagination/>
               </div>
-              
-
           </CardBooks>
          
 

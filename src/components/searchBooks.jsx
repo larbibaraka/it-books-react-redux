@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {fetchBooks} from '../actions/booksAction';
+import {fetchBooks, searchText} from '../actions/booksAction';
+
 class SearchBooks extends Component {
  
  constructor(props){
@@ -21,6 +22,7 @@ class SearchBooks extends Component {
   onSubmit = (e) =>{
         e.preventDefault();
         const textToSearch = this.state.searchItem;
+        this.props.searchText(textToSearch);
         this.props.fetchBooks(textToSearch);
         this.setState({
           searchItem : ""
@@ -52,4 +54,4 @@ class SearchBooks extends Component {
 
  
 
-export default connect(null , {fetchBooks})(SearchBooks);
+export default connect(null , {fetchBooks, searchText})(SearchBooks);

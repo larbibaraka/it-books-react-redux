@@ -5,6 +5,7 @@
   "homepage": "https://larbibaraka.github.io/it-books-react-redux/",
   "dependencies": {
     "gh-pages": "^2.0.1",
+    "rc-pagination": "^1.17.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
