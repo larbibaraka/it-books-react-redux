@@ -1,4 +1,4 @@
-import { FETCH_BOOKS, FETCH_BOOKS_WITH_PAGE, ADD_SEARCH_TEXT } from '../constants/types';
+import { FETCH_BOOKS, FETCH_BOOKS_WITH_PAGE, ADD_SEARCH_TEXT , GET_BOOK_INFO } from '../constants/types';
 
 export function searchText(text) {
   return ({
@@ -38,4 +38,17 @@ export function fetchBooksWithPageNumber(pageNumber, item) {
       }))
       
     }
+}
+
+
+export function getBookInfo (isbn) {
+  return function (dispatch)  {
+      const url = `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&format=json`;
+      fetch(url)
+      .then(res => res.json())
+      .then(data => dispatch({
+        type : GET_BOOK_INFO,
+        payload : data
+      }))
+  }
 }
