@@ -5,4 +5,4 @@ before_install:
   - docker build -t laridev/react-redux-itbook -f Dockerfile.dev .  
 
 scripts :
-  - docker run laridev/react-redux-Itbook npm run test -- --coverage
+  - docker run laridev/react-redux-itbook npm run test -- --coverage
