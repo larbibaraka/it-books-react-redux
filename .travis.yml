@@ -3,3 +3,6 @@ services :
   - docker
 before_install:
   - docker build -t laridev/react-redux-Itbook -f Dockerfile.dev .  
+
+scripts :
+  - docker run laridev/react-redux-Itbook npm run test -- --coverage
